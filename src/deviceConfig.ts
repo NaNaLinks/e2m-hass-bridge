@@ -354,7 +354,13 @@ export const ManufacturerDeviceConfig: Readonly<
         "roomTemperature",
         "humidity",
       ],
-      electricWaterHeater: ["remainingWater"],
+      electricWaterHeater: [
+        "remainingWater",
+        "numberOfEnergyShifts",
+        "faultDescription",
+        "bathWaterVolume3",
+        "standardTimeToStartHeating",
+      ],
     },
     climate: {
       fanmodeMapping: {
