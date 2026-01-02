@@ -255,6 +255,7 @@ export const MANUFACTURER: Record<string, ManufacturerCode> = {
   PANASONIC: "00000b",
   MOEKADEN_ROOM: "000000",
   KADEN_EMULATOR: "ffffff",
+  OMRON: "000064",
 } as const;
 
 /**
@@ -409,6 +410,21 @@ export const ManufacturerDeviceConfig: Readonly<
     autoRequestProperties: {
       // humidityは存在しないがITのために追加
       homeAirConditioner: ["roomTemperature", "humidity"],
+    },
+  },
+  [MANUFACTURER.OMRON]: {
+    autoRequestProperties: {
+      // 住宅用太陽光発電
+      pvPowerGeneration: [
+        "instantaneousElectricPowerGeneration",
+        "faultDescription",
+        "powerSystemInterconnectionStatus",
+        "hourMeter",
+        "cumulativeElectricEnergyOfGeneration",
+        "ratedElectricPowerOfgeneration",
+        "ratedElectricPowerOfgenerationIndependent",
+        "powerGenerationOutputLimit1",
+      ],
     },
   },
 };
